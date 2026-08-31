@@ -24,7 +24,7 @@ Richtlinie (EU) 2024/825 und Durchführungsverordnung (EU) 2025/1960 an.
 
 ## Konfiguration
 Die Konfiguration wird in diesem Video erklärt:
-https://onlineshop.consulting/videos/plugins/sw5/onco-withdrawal.mp4
+https://onlineshop.consulting/videos/plugins/sw5/onco-legal-garan.mp4
 
 ## Kompatibilität
 

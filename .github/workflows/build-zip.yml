@@ -22,22 +22,22 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref }}
-          path: OncoWithdrawal
+          path: OncoLegalGaran
 
       - name: Create plugin ZIP
         run: |
-          rm -rf OncoWithdrawal/.github OncoWithdrawal/.git
-          zip -r OncoWithdrawal.zip OncoWithdrawal
+          rm -rf OncoLegalGaran/.github OncoLegalGaran/.git
+          zip -r OncoLegalGaran.zip OncoLegalGaran
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: OncoWithdrawal
-          path: OncoWithdrawal.zip
+          name: OncoLegalGaran
+          path: OncoLegalGaran.zip
 
       - name: Attach to release
         if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
-          files: OncoWithdrawal.zip
+          files: OncoLegalGaran.zip

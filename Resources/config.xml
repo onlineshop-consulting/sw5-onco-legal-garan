@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware5/shopware/5.7/engine/Shopware/Components/Plugin/schema/config.xsd">
+    <elements>
+
+        <element type="button">
+            <name>createAttachments</name>
+            <label>Attach notice PDF to order confirmation email</label>
+            <label lang="de">Hinweis-PDF an Bestellbestätigung anhängen</label>
+            <description>Uploads the official EU legal guarantee notice PDF into the media library and registers it as an attachment on the sORDER mail template for every shop, matched to the shop's language. Already configured shops are skipped, so the button can be used again after adding shops.</description>
+            <description lang="de">Lädt das offizielle PDF des EU-Gewährleistungs-Hinweises in die Medienverwaltung und hinterlegt es als Anhang der sORDER Mail-Vorlage für jeden Shop in der jeweiligen Shopsprache. Bereits eingerichtete Shops werden übersprungen, der Button kann daher nach dem Anlegen neuer Shops erneut verwendet werden.</description>
+            <options>
+                <handler><![CDATA[function(btn) {
+                    btn.setDisabled(true);
+                    Ext.Ajax.request({
+                        url: window.location.href.substr(0, window.location.href.indexOf('backend')) + 'backend/OncoLegalGaran/createAttachments',
+                        method: 'POST',
+                        callback: function(options, success, response) {
+                            btn.setDisabled(false);
+                            var result = { success: false };
+                            try { result = Ext.decode(response.responseText); } catch (e) {}
+                            Shopware.Notification.createGrowlMessage(
+                                'OncoLegalGaran',
+                                result.message || 'Request failed'
+                            );
+                        }
+                    });
+                }]]></handler>
+            </options>
+        </element>
+
+    </elements>
+</config>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware5/shopware/5.7/engine/Shopware/Components/Plugin/schema/plugin.xsd">
+
+    <label>EU legal guarantee notice</label>
+    <label lang="de">EU-Gewährleistungs-Hinweis</label>
+
+    <version>1.0.0</version>
+
+    <copyright>onlineshop.consulting</copyright>
+    <author>onlineshop.consulting</author>
+    <link>https://onlineshop.consulting</link>
+
+    <description>
+        Displays the EU harmonised notice on the legal guarantee of conformity on the checkout confirmation page, in compliance with Directive (EU) 2024/825 and Implementing Regulation (EU) 2025/1960: a "Your legal guarantee rights" link that shows the full harmonised notice on first click, plus a clickable link to the Your Europe portal (same destination as the notice's QR code).
+    </description>
+    <description lang="de">
+        Zeigt den harmonisierten EU-Hinweis auf die gesetzliche Gewährleistung auf der Bestellabschluss-Seite gemäß Richtlinie (EU) 2024/825 und Durchführungsverordnung (EU) 2025/1960: Ein Link "Ihre gesetzlichen Gewährleistungsrechte" öffnet den vollständigen harmonisierten Hinweis beim ersten Klick, zusätzlich wird ein klickbarer Link zum Your-Europe-Portal (gleiches Ziel wie der QR-Code des Hinweises) angezeigt.
+    </description>
+
+    <compatibility minVersion="5.4.0"/>
+
+    <changelog version="1.0.0">
+        <changes>Initial release</changes>
+        <changes lang="de">Erstveröffentlichung</changes>
+    </changelog>
+</plugin>

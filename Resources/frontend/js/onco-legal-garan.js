@@ -1,13 +1,23 @@
 (function () {
-    var link = document.querySelector('[data-onco-legal-garan="true"]'),
-        template = document.querySelector('.onco-legal-garan--modal-template');
+    function findNoticeLink(node) {
+        while (node && node !== document) {
+            if (node.getAttribute && node.getAttribute('data-onco-legal-garan') === 'true') {
+                return node;
+            }
+            node = node.parentNode;
+        }
 
-    if (!link || !template) {
-        return;
+        return null;
     }
 
-    link.addEventListener('click', function (event) {
-        if (!window.jQuery || !window.jQuery.modal) {
+    document.addEventListener('click', function (event) {
+        var link = findNoticeLink(event.target);
+        if (!link) {
+            return;
+        }
+
+        var template = document.querySelector('.onco-legal-garan--modal-template');
+        if (!template || !window.jQuery || !window.jQuery.modal) {
             return;
         }
 

@@ -5,8 +5,11 @@ Richtlinie (EU) 2024/825 und Durchführungsverordnung (EU) 2025/1960 an.
 
 ## Features
 
-- Link "Ihre gesetzlichen Gewährleistungsrechte" auf der Bestellabschluss-Seite;
-  erster Klick öffnet den vollständigen offiziellen Hinweis im Modal
+- Link "Ihre gesetzlichen Gewährleistungsrechte"; erster Klick öffnet den
+  vollständigen offiziellen Hinweis im Modal
+- Position konfigurierbar: Bestellabschluss-Seite (Standard), Produktdetailseite,
+  Warenkorb (Seite, Off-Canvas und "Artikel hinzugefügt"-Popup) und/oder
+  eigener CSS-Selektor (auf jeder Seite)
 - Klickbarer Link zum Your-Europe-Portal (gleiches Ziel wie der QR-Code des Hinweises)
 - Button in der Plugin-Konfiguration hängt das offizielle Hinweis-PDF an die
   sORDER-Bestellbestätigung an (pro Shop in der jeweiligen Shopsprache, erneut

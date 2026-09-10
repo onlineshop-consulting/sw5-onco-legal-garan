@@ -2,6 +2,63 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware5/shopware/5.7/engine/Shopware/Components/Plugin/schema/config.xsd">
     <elements>
+        <element scope="shop" type="boolean">
+            <name>showOnConfirm</name>
+            <label>Show on checkout confirmation page</label>
+            <label lang="de">Anzeigen: Bestellabschluss-Seite</label>
+            <value>true</value>
+        </element>
+
+        <element scope="shop" type="boolean">
+            <name>showOnDetail</name>
+            <label>Show on product detail page (below buy button)</label>
+            <label lang="de">Anzeigen: Produktdetailseite (unter dem Kaufen-Button)</label>
+        </element>
+
+        <element scope="shop" type="boolean">
+            <name>showOnCart</name>
+            <label>Show on cart (page, off-canvas and added-to-cart popup)</label>
+            <label lang="de">Anzeigen: Warenkorb (Seite, Off-Canvas und "Artikel hinzugefügt"-Popup)</label>
+        </element>
+
+        <element scope="shop" type="text">
+            <name>customSelector</name>
+            <label>Custom CSS selector</label>
+            <label lang="de">Anzeigen: Eigener CSS-Selektor</label>
+            <description>Enter a CSS selector (e.g. ".footer-main", "#my-element") to place the notice at a custom position on every page. Leave empty to disable.</description>
+            <description lang="de">Geben Sie einen CSS-Selektor ein (z.B. ".footer-main", "#my-element"), um den Hinweis an einer eigenen Position auf jeder Seite zu platzieren. Leer lassen zum Deaktivieren.</description>
+        </element>
+
+        <element scope="shop" type="select">
+            <name>customSelectorPosition</name>
+            <label>Insertion method</label>
+            <label lang="de">Anzeigen: Einfügemethode für eigenen Selektor</label>
+            <value>append</value>
+            <description>How the notice is placed relative to the element matched by the CSS selector above.</description>
+            <description lang="de">Bestimmt, wie der Hinweis relativ zum per CSS-Selektor gefundenen Element eingefügt wird.</description>
+            <store>
+                <option>
+                    <value>append</value>
+                    <label>Append (inside, at the end)</label>
+                    <label lang="de">Anhängen (innerhalb, am Ende)</label>
+                </option>
+                <option>
+                    <value>prepend</value>
+                    <label>Prepend (inside, at the beginning)</label>
+                    <label lang="de">Voranstellen (innerhalb, am Anfang)</label>
+                </option>
+                <option>
+                    <value>after</value>
+                    <label>After (outside, after the element)</label>
+                    <label lang="de">Danach (außerhalb, nach dem Element)</label>
+                </option>
+                <option>
+                    <value>before</value>
+                    <label>Before (outside, before the element)</label>
+                    <label lang="de">Davor (außerhalb, vor dem Element)</label>
+                </option>
+            </store>
+        </element>
 
         <element type="button">
             <name>createAttachments</name>

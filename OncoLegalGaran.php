@@ -63,7 +63,8 @@ class OncoLegalGaran extends Plugin
     public static function getSubscribedEvents()
     {
         return [
-            'Enlight_Controller_Action_PostDispatchSecure_Frontend_Checkout' => 'onCheckoutPostDispatch',
+            'Enlight_Controller_Action_PreDispatch' => 'onPreDispatch',
+            'Enlight_Controller_Action_PostDispatch_Frontend' => 'onFrontendPostDispatch',
             'Enlight_Controller_Dispatcher_ControllerPath_Backend_OncoLegalGaran' => 'onGetBackendController',
         ];
     }
@@ -75,20 +76,18 @@ class OncoLegalGaran extends Plugin
     }
 
     /** @return void */
-    public function onCheckoutPostDispatch(Enlight_Controller_ActionEventArgs $args)
+    public function onPreDispatch(Enlight_Controller_ActionEventArgs $args)
     {
-        $controller = $args->getSubject();
+        $args->getSubject()->View()->addTemplateDir($this->getPath() . '/Resources/views');
+    }
 
-        if ($controller->Request()->getActionName() !== 'confirm') {
-            return;
-        }
-
-        $view = $controller->View();
-        $view->addTemplateDir($this->getPath() . '/Resources/views');
-
+    /** @return void */
+    public function onFrontendPostDispatch(Enlight_Controller_ActionEventArgs $args)
+    {
         $language = $this->getShopLanguage();
 
-        $view->assign('oncoLegalGaran', [
+        $args->getSubject()->View()->assign('oncoLegalGaran', [
+            'config' => $this->readConfig(),
             'noticeImage' => $this->getNoticeImage($language),
             'yourEuropeUrl' => $this->getPortalUrl($language),
             'yourEuropeLabel' => $this->getPortalLabel($language),
@@ -166,6 +165,21 @@ class OncoLegalGaran extends Plugin
         $paths = self::PORTAL_PATHS;
 
         return isset($paths[$language]) ? $paths[$language] : $paths['en'];
+    }
+
+    /** @return array<string, mixed> */
+    private function readConfig($shop = null)
+    {
+        /** @var \Shopware\Components\Plugin\DBALConfigReader $reader */
+        $reader = $this->container->get('shopware.plugin.config_reader');
+
+        if (!$shop) {
+            $shop = $this->container->initialized('shop')
+                ? $this->container->get('shop')
+                : null;
+        }
+
+        return $reader->getByPluginName($this->getName(), $shop);
     }
 
     /** @return LifeCycleService */

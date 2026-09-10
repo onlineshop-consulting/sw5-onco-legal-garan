@@ -5,7 +5,7 @@
     <label>EU legal guarantee notice</label>
     <label lang="de">EU-Gewährleistungs-Hinweis</label>
 
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 
     <copyright>onlineshop.consulting</copyright>
     <author>onlineshop.consulting</author>
@@ -23,5 +23,9 @@
     <changelog version="1.0.0">
         <changes>Initial release</changes>
         <changes lang="de">Erstveröffentlichung</changes>
+    </changelog>
+    <changelog version="1.1.0">
+        <changes>New placement options</changes>
+        <changes lang="de">Neue Platzierungsmöglichkeiten</changes>
     </changelog>
 </plugin>

@@ -24,10 +24,16 @@ Richtlinie (EU) 2024/825 und Durchführungsverordnung (EU) 2025/1960 an.
 1. ZIP herunterladen: https://github.com/onlineshop-consulting/sw5-onco-legal-garan/releases
 2. Im Shopware-Backend unter **Einstellungen > Plugin-Manager** installieren und aktivieren
 3. Cache leeren und Theme neu kompilieren
+4. In der Plugin-Konfiguration den Button **"Hinweis-PDF an Bestellbestätigung
+   anhängen"** klicken
 
 ## Konfiguration
 Die Konfiguration wird in diesem Video erklärt:
 https://onlineshop.consulting/videos/plugins/sw5/onco-legal-garan.mp4
+
+Anzeige-Positionen und PDF-Anhang sind pro Shop konfigurierbar. Bei der
+Deinstallation werden angelegte Mail-Anhänge und Medien wieder entfernt
+(außer bei "Daten behalten").
 
 ## Kompatibilität
 
@@ -36,5 +42,4 @@ PHP 5.6+
 
 ## Nicht enthalten
 
-Optionale Platzierungen (Katalogseiten, Header) sowie das EU-GARAN-Label für
-Haltbarkeitsgarantien der Hersteller (Abschnitt 3 der EU-Leitlinien).
+Das EU-GARAN-Label für Haltbarkeitsgarantien der Hersteller (Abschnitt 3 der EU-Leitlinien).

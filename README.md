@@ -10,6 +10,8 @@ Richtlinie (EU) 2024/825 und Durchführungsverordnung (EU) 2025/1960 an.
 - Position konfigurierbar: Bestellabschluss-Seite (Standard), Produktdetailseite,
   Warenkorb (Seite, Off-Canvas und "Artikel hinzugefügt"-Popup) und/oder
   eigener CSS-Selektor (auf jeder Seite)
+- Zusätzlich zwei Direkt-Varianten ohne Modal (Hinweis wird sofort angezeigt,
+  Your-Europe-Link darunter): Bestellabschluss-Seite und eigener CSS-Selektor
 - Klickbarer Link zum Your-Europe-Portal (gleiches Ziel wie der QR-Code des Hinweises)
 - Button in der Plugin-Konfiguration hängt das offizielle Hinweis-PDF an die
   sORDER-Bestellbestätigung an (pro Shop in der jeweiligen Shopsprache, erneut
@@ -34,6 +36,12 @@ https://onlineshop.consulting/videos/plugins/sw5/onco-legal-garan.mp4
 Anzeige-Positionen und PDF-Anhang sind pro Shop konfigurierbar. Bei der
 Deinstallation werden angelegte Mail-Anhänge und Medien wieder entfernt
 (außer bei "Daten behalten").
+
+## Für Entwickler: Anzeige per Event unterdrücken
+
+Vor jeder Frontend-Seite feuert das Plugin das Filter-Event
+`OncoLegalGaran_Filter_ShowNotice`. Gibt ein Listener `false` zurück, wird der Hinweis auf
+dieser Seite an keiner Position angezeigt. 
 
 ## Kompatibilität
 

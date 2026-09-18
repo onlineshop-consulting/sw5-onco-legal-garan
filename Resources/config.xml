@@ -60,6 +60,51 @@
             </store>
         </element>
 
+        <element scope="shop" type="boolean">
+            <name>showInlineOnConfirm</name>
+            <label>Show notice directly on checkout confirmation page (no modal)</label>
+            <label lang="de">Anzeigen direkt in voller Größe: Bestellabschluss-Seite</label>
+        </element>
+
+        <element scope="shop" type="text">
+            <name>customSelectorInline</name>
+            <label>Custom CSS selector – notice shown directly (no modal)</label>
+            <label lang="de">Anzeigen direkt in voller Größe: Eigener CSS-Selektor</label>
+            <description>Enter a CSS selector (e.g. ".footer-main", "#my-element") to display the full notice directly at a custom position on every page. Leave empty to disable.</description>
+            <description lang="de">Geben Sie einen CSS-Selektor ein (z.B. ".footer-main", "#my-element"), um den vollständigen Hinweis direkt an einer eigenen Position auf jeder Seite anzuzeigen. Leer lassen zum Deaktivieren.</description>
+        </element>
+
+        <element scope="shop" type="select">
+            <name>customSelectorInlinePosition</name>
+            <label>Insertion method (direct notice)</label>
+            <label lang="de">Anzeigen direkt in voller Größe: Einfügemethode für eigenen Selektor (Hinweis direkt)</label>
+            <value>append</value>
+            <description>How the directly displayed notice is placed relative to the element matched by the CSS selector above.</description>
+            <description lang="de">Bestimmt, wie der direkt angezeigte Hinweis relativ zum per CSS-Selektor gefundenen Element eingefügt wird.</description>
+            <store>
+                <option>
+                    <value>append</value>
+                    <label>Append (inside, at the end)</label>
+                    <label lang="de">Anhängen (innerhalb, am Ende)</label>
+                </option>
+                <option>
+                    <value>prepend</value>
+                    <label>Prepend (inside, at the beginning)</label>
+                    <label lang="de">Voranstellen (innerhalb, am Anfang)</label>
+                </option>
+                <option>
+                    <value>after</value>
+                    <label>After (outside, after the element)</label>
+                    <label lang="de">Danach (außerhalb, nach dem Element)</label>
+                </option>
+                <option>
+                    <value>before</value>
+                    <label>Before (outside, before the element)</label>
+                    <label lang="de">Davor (außerhalb, vor dem Element)</label>
+                </option>
+            </store>
+        </element>
+
         <element type="button">
             <name>createAttachments</name>
             <label>Attach notice PDF to order confirmation email</label>

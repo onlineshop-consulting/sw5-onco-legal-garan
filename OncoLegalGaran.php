@@ -84,10 +84,24 @@ class OncoLegalGaran extends Plugin
     /** @return void */
     public function onFrontendPostDispatch(Enlight_Controller_ActionEventArgs $args)
     {
+        $controller = $args->getSubject();
         $language = $this->getShopLanguage();
+        $config = $this->readConfig();
 
-        $args->getSubject()->View()->assign('oncoLegalGaran', [
-            'config' => $this->readConfig(),
+        $show = $this->container->get('events')->filter(
+            'OncoLegalGaran_Filter_ShowNotice',
+            true,
+            [
+                'subject' => $this,
+                'controller' => $controller,
+                'request' => $controller->Request(),
+                'config' => $config,
+            ]
+        );
+
+        $controller->View()->assign('oncoLegalGaran', [
+            'show' => (bool) $show,
+            'config' => $config,
             'noticeImage' => $this->getNoticeImage($language),
             'yourEuropeUrl' => $this->getPortalUrl($language),
             'yourEuropeLabel' => $this->getPortalLabel($language),

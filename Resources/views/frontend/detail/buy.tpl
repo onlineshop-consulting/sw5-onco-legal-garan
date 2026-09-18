@@ -4,7 +4,7 @@
     {$smarty.block.parent}
 
     {block name="onco_legal_garan_detail_notice"}
-        {if $oncoLegalGaran.config.showOnDetail}
+        {if $oncoLegalGaran.show && $oncoLegalGaran.config.showOnDetail}
             {include file="plugin/onco_legal_garan/notice.tpl"}
         {/if}
     {/block}

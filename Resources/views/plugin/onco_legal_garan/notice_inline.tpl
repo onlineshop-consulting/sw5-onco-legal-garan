@@ -4,6 +4,6 @@
          alt="{s name="NoticeAlt" namespace="frontend/plugins/onco_legal_garan"}Harmonisierter EU-Hinweis auf die gesetzliche Gewährleistung{/s}" />
     <p class="onco-legal-garan--portal-link">
         {s name="PortalLinkIntro" namespace="frontend/plugins/onco_legal_garan"}Weitere Informationen:{/s}
-        <a href="{$oncoLegalGaran.yourEuropeUrl}" target="_blank" rel="noopener">{$oncoLegalGaran.yourEuropeLabel}</a>
+        <a href="{$oncoLegalGaran.yourEuropeUrl}" target="_blank" rel="nofollow noopener">{$oncoLegalGaran.yourEuropeLabel}</a>
     </p>
 </div>

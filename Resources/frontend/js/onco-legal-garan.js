@@ -28,5 +28,14 @@
             sizing: 'content',
             additionalClass: 'onco-legal-garan--modal'
         });
+
+        var image = document.querySelector('.onco-legal-garan--modal .onco-legal-garan--notice-image');
+        if (image && !image.complete) {
+            image.onload = function () {
+                if (document.body.contains(image) && window.jQuery && window.jQuery.modal) {
+                    window.jQuery.modal.center();
+                }
+            };
+        }
     });
 })();
